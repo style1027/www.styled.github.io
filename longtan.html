@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玩家论坛</title>
+    <style>
+    body {
+        background-image: url('https://gd-hbimg.huaban.com/8f15e8f6a257a9033f79f587b6e79d44d0700e8f27cd77-nTb7SA_fw658');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        }
+        
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            font-size: 12px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a.right {
+            float: right;
+        }
+
+        .navbar {
+        background-color: #FFC0CB;
+        overflow: hidden;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="navbar">
+        <a href="longtan.html">论坛</a>
+        <a href="游戏下载.html">游戏下载</a>
+        <a href="white-list-login.html" class="right">登录/注册</a>
+    </div>
+  
+    <div class="container">
+        <h1>玩家论坛</h1>
+        <form id="post-form">
+            <label for="title" class="form-label">标题:</label>
+            <input type="text" id="title" name="title" class="form-input" required><br><br>
+            <label for="content" class="form-label">内容:</label>
+            <textarea id="content" name="content" rows="10" cols="30" class="form-textarea" required></textarea><br><br>
+            <button type="submit" class="form-button">发布帖子</button>
+        </form>
+        <h2>已保存的帖子数量: <span id="saved-post-count">0</span></h2>
+        <h2>帖子列表</h2>
+        <ul id="posts"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

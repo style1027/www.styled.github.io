@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <style>
+  body {
+        background-image: url('https://gd-hbimg.huaban.com/f9f248138a00ccc23e8bf810faf29632fd39b38f4f1452-78K3S8_fw658');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        }
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白名单登录系统</title>
+    <link rel="stylesheet" href="white-list-login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>白名单登录，注册进群:暂定</h2>
+        <form id="login-form">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+    
+    <script>
+      // 检查登录状态
+      const loginStatus = localStorage.getItem('loggedIn');
+      if (loginStatus === 'true') {
+        window.location.href = 'index.html';
+      }
+    </script>
+    
+    <script src="white-list-login.js">
+      
+      localStorage.setItem('loggedIn', 'true');
+
+      
+    </script>
+</body>
+</html>

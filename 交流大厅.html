@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聊天系统 - 随机昵称</title>
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* 聊天容器样式 */
+    #chat-container {
+      margin: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      width: 600px;
+    }
+
+    #chat-container h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* 聊天记录样式 */
+    #chat-messages {
+      list-style: none;
+      padding: 0;
+    }
+
+    #chat-messages li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* 昵称输入和提交表单样式 */
+    #nickname-container {
+      margin-bottom: 20px;
+    }
+
+    #nickname-container label {
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+
+    #nickname-container input,
+    #nickname-container button {
+      font-size: 16px;
+    }
+
+    #nickname-container button {
+      margin-left: 10px;
+    }
+
+    #message-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #message-form input[type="text"] {
+      flex: 1;
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #message-form button[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #message-form button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <!-- 聊天界面代码 -->
+    <h1>玩家聊天</h1>
+  <div id="nickname-container">
+    <label for="nickname-input">请输入昵称：</label>
+    <input type="text" id="nickname-input" placeholder="请选择一个昵称">
+    <button onclick="generateNickname()">随机昵称</button>
+  </div>
+  <div id="chat-container">
+    <h2>聊天记录：</h2>
+    <ul id="chat-messages"></ul>
+  </div>
+  <form id="message-form">
+    <input type="text" id="message-input" placeholder="请输入聊天内容...">
+    <button type="submit">发送</button>
+  </form>
+
+  <script>
+    // 随机昵称函数
+    function generateNickname() {
+      const nicknames = [
+        "喵喵侠",
+        "酷酷猫",
+        "香蕉侠",
+        "甜甜圈",
+        "皮卡丘",
+        "闪电侠",
+        "海绵宝宝",
+        "小超人",
+        "蓝精灵"
+      ];
+      const randomNickname = nicknames[Math.floor(Math.random() * nicknames.length)];
+      document.getElementById("nickname-input").value = randomNickname;
+    }
+
+    // 处理聊天消息提交
+    document.getElementById("message-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const sender = document.getElementById("nickname-input").value;
+      const message = document.getElementById("message-input").value;
+
+      const chatMessage = document.createElement("li");
+      chatMessage.textContent = `${sender}: ${message}`;
+
+      const chatMessages = document.getElementById("chat-messages");
+      chatMessages.appendChild(chatMessage);
+
+      // 清空输入框
+      document.getElementById("message-input").value = "";
+    });
+  </script>
+</body>
+</html>
